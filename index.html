@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background:rgba(189, 195, 199,1.0);
+        }
+        .top-nav {
+            background:rgba(44, 62, 80,1.0);
+            color:rgba(236, 240, 241,1.0);
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            z-index:10000;
+        }
+        .flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:5px;
+        }
+        .login-button {
+            background:rgba(52, 152, 219,1.0);
+            color:rgba(236, 240, 241,1.0);
+            padding:10px 20px;
+            border:none;
+            outline:none;
+            border-radius:8px;
+        }
+        .login-button:hover {
+            box-shadow:2px 2px 3px 2px rgba(255,255,255,0.9);
+        }
+        .mtb {
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+        .nav-search {
+            position:relative;
+            width:90%;
+        }
+        #search-icon {
+            position:absolute;
+            top:50%;
+            left:5px;
+            transform: translateY(-50%);
+        }
+        .nav-search-box {
+            height:30px;
+            width: 100%;
+            border-radius:8px;
+        }
+        .nav-search-box:focus + #search-icon {
+            display: none;
+        }
+         
+        .offer-section {
+            max-width: 100%;
+            margin-top:200px;
+            margin-right:3%;
+            margin-left:3%;
+        }
+        .offer-block {
+            background:rgba(236, 240, 241,1.0);
+            margin-bottom: 15px;
+        }
+        .offer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap:5px;
+        }
+        .offer-container::-webkit-scrollbar {
+            display: none; 
+        }
+        .offer-heading {
+            text-align: center;
+            margin-bottom: 8px;
+            margin-top:3px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .offer-image {
+            width:120px;
+            height:180px;
+            transition: transform 0.3s;
+        }
+        .offer-image:hover {
+            transform: scale(1.05);
+        }
+        .offer-item-name {
+            color:gray;
+            text-align: center;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+        .offer-percentage-range {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        
+        @media (min-width:768px) {
+            
+            .flex { 
+                flex-direction: row;
+                gap:10px;
+            }
+            .flex > div {
+                margin:5px;
+            }
+            .offer-section {
+                margin-top:100px;
+                margin-right:1%;
+                margin-left:1%;
+            }
+            .offer-image {
+                width:180px;
+                height:240px;
+            }
+            .offer-container {
+                display:flex;
+                flex-wrap: nowrap;  
+                justify-content:initial;
+                gap:0px; 
+                overflow-x: auto;
+                scroll-behavior: smooth;
+            }
+            .offer-heading {
+                text-align: left;
+            }
+            .offer-container > div > * {
+                margin:5px;
+            }   
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="flex mtb">
+            <div class="logo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="12" fill="#4CAF50"/>
+                    <path d="M6 6h2l2 8h8l2-5H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="10" cy="18" r="1.5" fill="white"/>
+                    <circle cx="17" cy="18" r="1.5" fill="white"/>
+                  </svg>                                  
+            </div>
+            <div class="nav-search">       
+                <input class="nav-search-box" placeholder="       Search for Brands,Products and more"/>
+                <svg id="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 
+                             4.23-1.57l.27.28v.79l5 5L20.49 19l-5-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 
+                             5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z"/>
+                  </svg>
+            </div>
+            <div>
+                <button class="login-button">Login</button>                 
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgba(236, 240, 241,1.0)" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 
+                             0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 
+                             14h9.69c.75 0 1.41-.41 1.75-1.03l3.58-6.49a1 1 0 00-.89-1.48H5.21L4.27 
+                             2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42a.25.25 
+                             0 01-.26-.25L7.16 14z"/>
+                  </svg> 
+            </div>
+        </div>
+    </nav>
+
+    <section class="offer-section">
+        <div class="offer-block">
+            <div>
+                <h3 class="offer-heading">Top Offers</h3>
+            </div>
+            <div class="offer-container">
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <h5 class="offer-item-name">Jeans,Trousers</h5>
+                    <h4 class="offer-percentage-range">50-80% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <h5 class="offer-item-name">Reebok shoes</h5>
+                    <h4 class="offer-percentage-range">10-30% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <h5 class="offer-item-name">Mobiles,Tablet</h5>
+                    <h4 class="offer-percentage-range">30-40% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <h5 class="offer-item-name">Toys</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <h5 class="offer-item-name">Jeans,Trousers</h5>
+                    <h4 class="offer-percentage-range">50-80% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <h5 class="offer-item-name">Reebok shoes</h5>
+                    <h4 class="offer-percentage-range">10-30% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <h5 class="offer-item-name">Mobiles,Tablet</h5>
+                    <h4 class="offer-percentage-range">30-40% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <h5 class="offer-item-name">Toys</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <h5 class="offer-item-name">Jeans,Trousers</h5>
+                    <h4 class="offer-percentage-range">50-80% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <h5 class="offer-item-name">Reebok shoes</h5>
+                    <h4 class="offer-percentage-range">10-30% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <h5 class="offer-item-name">Mobiles,Tablet</h5>
+                    <h4 class="offer-percentage-range">30-40% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <h5 class="offer-item-name">Toys</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <h5 class="offer-item-name">Jeans,Trousers</h5>
+                    <h4 class="offer-percentage-range">50-80% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <h5 class="offer-item-name">Reebok shoes</h5>
+                    <h4 class="offer-percentage-range">10-30% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <h5 class="offer-item-name">Mobiles,Tablet</h5>
+                    <h4 class="offer-percentage-range">30-40% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <h5 class="offer-item-name">Toys</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="offer-block">
+            <div>
+                <h3 class="offer-heading">499Rs</h3>
+            </div>
+            <div class="offer-container">
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/242/200/300"/>
+                    <h5 class="offer-item-name">Mop,Spinners</h5>
+                    <h4 class="offer-percentage-range">50-80% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/243/200/300"/>
+                    <h5 class="offer-item-name">Kitchen sets</h5>
+                    <h4 class="offer-percentage-range">10-30% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/244/200/300"/>
+                    <h5 class="offer-item-name">Table,Chairs</h5>
+                    <h4 class="offer-percentage-range">30-40% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/247/200/300"/>
+                    <h5 class="offer-item-name">Cosmetics</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="offer-block">
+            <div>
+                <h3 class="offer-heading">Mobile Phones on deal</h3>
+            </div>
+            <div class="offer-container">
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/242/200/300"/>
+                    <h5 class="offer-item-name">Oppo</h5>
+                    <h4 class="offer-percentage-range">5-10% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/243/200/300"/>
+                    <h5 class="offer-item-name">Vivo</h5>
+                    <h4 class="offer-percentage-range">10-30% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/244/200/300"/>
+                    <h5 class="offer-item-name">Poco</h5>
+                    <h4 class="offer-percentage-range">30-40% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/247/200/300"/>
+                    <h5 class="offer-item-name">Samsung</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/249/200/300"/>
+                    <h5 class="offer-item-name">Poco</h5>
+                    <h4 class="offer-percentage-range">30-40% Off</h4>
+                </div>
+    
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/250/200/300"/>
+                    <h5 class="offer-item-name">Samsung</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>
