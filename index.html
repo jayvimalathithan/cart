@@ -183,7 +183,15 @@
             }
             .offer-container > div > * {
                 margin:5px;
-            }   
+            }  
+            .cart-items {
+                top:100;
+                left:100%;
+            }
+            .cart-items::-webkit-scrollbar { display: none;}
+            .cart:hover .cart-items {
+                transform: translateX(-100%) scale(1);
+            }
         }
 
     </style>
