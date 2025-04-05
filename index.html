@@ -107,6 +107,50 @@
             text-align: center;
             margin-bottom: 5px;
         }
+        .cart {
+            position: relative;
+        }
+        .cart:hover .cart-items {
+            transform: translateX(-50%) scale(1);
+        }
+        .cart-items {
+            position:absolute;
+            z-index:10001;
+            top:100%;
+            background: white;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+            min-height:250px;
+            min-width:250px;
+            max-height:350px;
+            overflow-y:auto;
+            transform: translateX(-50%) scale(0);
+            transition: transform 0.35s ease-in-out;
+            overflow-y: auto;
+
+        }
+        .cart-layout {
+
+        }
+
+        .item-name-price {
+            display: flex;
+            gap:5px;  
+            margin-bottom:5px;  
+            border-bottom:2px solid rgba(189, 195, 199,1.0);
+        }
+        .item-name-price > div {
+            flex:4 1 0;
+        }
+        .item-name-price img {
+            height:50px;
+            width:50px;
+            flex:1 1 0;
+        }
+        .name-price {
+
+        }
+        .cart-item { color: black;letter-spacing: 2px;text-transform: uppercase;padding:6px 4px;}
+        .cart-price {color:black;padding:2px 4px;}
         
         @media (min-width:768px) {
             
@@ -141,6 +185,7 @@
                 margin:5px;
             }   
         }
+
     </style>
 </head>
 <body>
@@ -165,7 +210,7 @@
             <div>
                 <button class="login-button">Login</button>                 
             </div>
-            <div>
+            <div class="cart">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="rgba(236, 240, 241,1.0)" viewBox="0 0 24 24">
                     <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 
                              0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 
@@ -173,6 +218,74 @@
                              2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42a.25.25 
                              0 01-.26-.25L7.16 14z"/>
                   </svg> 
+                  <div class="cart-items">
+                    <div class="cart-layout">
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/280/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Air cooler</h5>
+                                <h4 class="cart-price">4500 Rs.</h4>
+                            </div>
+                        </div>
+
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/290/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Hair Dryer</h5>
+                                <h4 class="cart-price">1300 Rs.</h4>
+                            </div>
+                        </div>
+
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/291/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Spray</h5>
+                                <h4 class="cart-price">350 Rs.</h4>
+                            </div>
+                        </div>
+
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/292/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Decor</h5>
+                                <h4 class="cart-price">850 Rs.</h4>
+                            </div>
+                        </div>
+
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/293/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Sun screen</h5>
+                                <h4 class="cart-price">3000 Rs.</h4>
+                            </div>
+                        </div>
+
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/294/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Foundation</h5>
+                                <h4 class="cart-price">1200 Rs.</h4>
+                            </div>
+                        </div>
+
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/295/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Shirt</h5>
+                                <h4 class="cart-price">750 Rs.</h4>
+                            </div>
+                        </div>
+
+                        <div class="item-name-price">
+                            <img src="https://picsum.photos/id/296/200/300"/>
+                            <div class="name-price">
+                                <h5 class="cart-item">Pant</h5>
+                                <h4 class="cart-price">1200 Rs.</h4>
+                            </div>
+                        </div>
+
+                    </div>
+                  </div>
             </div>
         </div>
     </nav>
@@ -184,97 +297,97 @@
             </div>
             <div class="offer-container">
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/260/200/300"/>
                     <h5 class="offer-item-name">Jeans,Trousers</h5>
                     <h4 class="offer-percentage-range">50-80% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/261/200/300"/>
                     <h5 class="offer-item-name">Reebok shoes</h5>
                     <h4 class="offer-percentage-range">10-30% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/280/200/300"/>
                     <h5 class="offer-item-name">Mobiles,Tablet</h5>
                     <h4 class="offer-percentage-range">30-40% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/263/200/300"/>
                     <h5 class="offer-item-name">Toys</h5>
                     <h4 class="offer-percentage-range">20-50% Off</h4>
                 </div>
 
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/264/200/300"/>
                     <h5 class="offer-item-name">Jeans,Trousers</h5>
                     <h4 class="offer-percentage-range">50-80% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/265/200/300"/>
                     <h5 class="offer-item-name">Reebok shoes</h5>
                     <h4 class="offer-percentage-range">10-30% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/266/200/300"/>
                     <h5 class="offer-item-name">Mobiles,Tablet</h5>
                     <h4 class="offer-percentage-range">30-40% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/267/200/300"/>
                     <h5 class="offer-item-name">Toys</h5>
                     <h4 class="offer-percentage-range">20-50% Off</h4>
                 </div>
 
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/268/200/300"/>
                     <h5 class="offer-item-name">Jeans,Trousers</h5>
                     <h4 class="offer-percentage-range">50-80% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/269/200/300"/>
                     <h5 class="offer-item-name">Reebok shoes</h5>
                     <h4 class="offer-percentage-range">10-30% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/270/200/300"/>
                     <h5 class="offer-item-name">Mobiles,Tablet</h5>
                     <h4 class="offer-percentage-range">30-40% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/271/200/300"/>
                     <h5 class="offer-item-name">Toys</h5>
                     <h4 class="offer-percentage-range">20-50% Off</h4>
                 </div>
 
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/238/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/272/200/300"/>
                     <h5 class="offer-item-name">Jeans,Trousers</h5>
                     <h4 class="offer-percentage-range">50-80% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/239/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/273/200/300"/>
                     <h5 class="offer-item-name">Reebok shoes</h5>
                     <h4 class="offer-percentage-range">10-30% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/240/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/274/200/300"/>
                     <h5 class="offer-item-name">Mobiles,Tablet</h5>
                     <h4 class="offer-percentage-range">30-40% Off</h4>
                 </div>
     
                 <div>
-                    <img class="offer-image" src="https://picsum.photos/id/241/200/300"/>
+                    <img class="offer-image" src="https://picsum.photos/id/275/200/300"/>
                     <h5 class="offer-item-name">Toys</h5>
                     <h4 class="offer-percentage-range">20-50% Off</h4>
                 </div>
@@ -307,6 +420,12 @@
                 <div>
                     <img class="offer-image" src="https://picsum.photos/id/247/200/300"/>
                     <h5 class="offer-item-name">Cosmetics</h5>
+                    <h4 class="offer-percentage-range">20-50% Off</h4>
+                </div>
+
+                <div>
+                    <img class="offer-image" src="https://picsum.photos/id/281/200/300"/>
+                    <h5 class="offer-item-name">Electronics</h5>
                     <h4 class="offer-percentage-range">20-50% Off</h4>
                 </div>
             </div>
