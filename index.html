@@ -21,6 +21,30 @@
             left:0;
             right:0;
             z-index:10000;
+            margin-bottom:200px;
+            min-height: 40px;
+            max-height: 0px;
+            transition: max-height 0.1s ease-in,display 1.5s ease-in-out;
+        }
+        .logo {
+            display: none;
+        }
+        .hamburger-icon {
+             position:absolute;
+             left:6px;
+             top:6px;
+             z-index:10001;
+        }
+        .ham-show {
+            max-height: 400px;
+        }
+
+        .ham-show .logo,
+        .ham-show .cart,
+        .ham-show .login-button,
+        .ham-show .nav-search
+        {
+            display: initial !important;
         }
         .flex {
             display: flex;
@@ -36,6 +60,8 @@
             border:none;
             outline:none;
             border-radius:8px;
+
+            display: none;
         }
         .login-button:hover {
             box-shadow:2px 2px 3px 2px rgba(255,255,255,0.9);
@@ -47,6 +73,8 @@
         .nav-search {
             position:relative;
             width:90%;
+
+            display: none;
         }
         #search-icon {
             position:absolute;
@@ -65,9 +93,12 @@
          
         .offer-section {
             max-width: 100%;
-            margin-top:200px;
             margin-right:3%;
             margin-left:3%;
+            margin-top:50px;
+        }
+        .ham-show + .offer-section {
+            margin-top: 180px;
         }
         .offer-block {
             background:rgba(236, 240, 241,1.0);
@@ -112,6 +143,8 @@
         }
         .cart {
             position: relative;
+
+            display: none;
         }
         .cart:hover .cart-items {
             transform: translateX(-50%) scale(1);
@@ -230,16 +263,25 @@
             transform: scale(0.50);
             box-shadow: 0 0 200px rgba(52, 152, 219,1.0);
         }
+
         
         @media (min-width:768px) {
-            
+            .hamburger-icon {
+                display: none;
+            }
             .flex { 
                 flex-direction: row;
                 gap:10px;
             }
-            .flex > div {
-                margin:5px;
+            .top-nav {
+                min-height: 55px;
             }
+            .logo,.cart,.login-button,.nav-search {
+                display: initial;
+            }
+            /* .flex > div {
+                margin:5px;
+            } */
             .offer-section {
                 margin-top:100px;
                 margin-right:1%;
@@ -272,11 +314,16 @@
                 transform: translateX(-100%) scale(1);
             }
         }
-
     </style>
 </head>
 <body>
     <nav class="top-nav">
+        <svg class="hamburger-icon" onclick="toggleNavBar(this)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="4" width="24" height="2" fill="currentColor"/>
+            <rect y="11" width="24" height="2" fill="currentColor"/>
+            <rect y="18" width="24" height="2" fill="currentColor"/>
+        </svg>
+          
         <div class="flex mtb">
             <div class="logo">
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -949,6 +996,12 @@
           }
           cntrInput.value = cntr
           
+        }
+
+        function toggleNavBar(e) {
+            var topNav = e.parentElement
+            var flex = topNav.querySelector(".flex")
+            topNav.classList.toggle('ham-show');
         }
     </script>
 </body>
