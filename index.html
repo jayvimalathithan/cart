@@ -79,6 +79,9 @@
             justify-content: center;
             gap:5px;
         }
+        .offer-container > div {
+            overflow: hidden;
+        }
         .offer-container::-webkit-scrollbar {
             display: none; 
         }
@@ -95,7 +98,7 @@
             transition: transform 0.3s;
         }
         .offer-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         .offer-item-name {
             color:gray;
@@ -189,13 +192,16 @@
             overflow-x: auto;   
             background: rgba(236, 240, 241,1.0);
         }
+        .product-flex::-webkit-scrollbar {
+            display: none;
+        }
         .product-image {
             width:200px;
             height:300px;
             transition: transform 0.35s ease-in-out;
         }
         .product-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         .price {
             text-align: center;
@@ -205,6 +211,7 @@
         }
         .pi-container {
             position:relative;
+            overflow: hidden;
         }
         .product-button {
             position:absolute;
@@ -217,10 +224,10 @@
             color:white;
             outline:none;
             border:none;
-            transition: transform 1s ease-in-out,box-shadow 1s ease-in-out;    
+            transition: transform 0.1s ease-in-out,box-shadow 0.1s ease-in-out;    
         }
         .product-button:active {
-            transform: scale(0.80);
+            transform: scale(0.50);
             box-shadow: 0 0 200px rgba(52, 152, 219,1.0);
         }
         
@@ -738,6 +745,41 @@
                 </div>
                 <h3 class="price">&#8377; 1500</h3>
             </div>
+            <div class="product-price">
+                <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/301/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 2500</h3>
+             </div>
+             <div class="product-price">
+                 <div  class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/302/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1700</h3>
+             </div>
+             <div class="product-price">
+                 <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/304/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1500</h3>
+             </div>
+             <div class="product-price">
+                 <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/305/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1500</h3>
+             </div>
+             <div class="product-price">
+                 <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/306/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1500</h3>
+             </div>
         </div>
 
         <h1 class="product-heading">Product Heading</h1>
@@ -762,6 +804,41 @@
                     <button class="product-button">ADD TO CART</button>
                 </div>
                 <h3 class="price">&#8377; 1500</h3>
+            </div>
+            <div class="product-price">
+                <div class="pi-container">
+                    <img class="product-image" src="https://picsum.photos/id/208/200/300"/>
+                    <button class="product-button">ADD TO CART</button>
+                </div>
+                <h3 class="price">&#8377; 1500</h3>
+            </div>
+            <div class="product-price">
+                <div class="pi-container">
+                    <img class="product-image" src="https://picsum.photos/id/206/200/300"/>
+                    <button class="product-button">ADD TO CART</button>
+                </div>
+                <h3 class="price">&#8377; 2000</h3>
+            </div>
+            <div class="product-price">
+                <div class="pi-container">
+                    <img class="product-image" src="https://picsum.photos/id/208/200/300"/>
+                    <button class="product-button">ADD TO CART</button>
+                </div>
+                <h3 class="price">&#8377; 1500</h3>
+            </div>
+            <div class="product-price">
+                <div class="pi-container">
+                    <img class="product-image" src="https://picsum.photos/id/206/200/300"/>
+                    <button class="product-button">ADD TO CART</button>
+                </div>
+                <h3 class="price">&#8377; 1500</h3>
+            </div>
+            <div class="product-price">
+                <div class="pi-container">
+                    <img class="product-image" src="https://picsum.photos/id/206/200/300"/>
+                    <button class="product-button">ADD TO CART</button>
+                </div>
+                <h3 class="price">&#8377; 2000</h3>
             </div>
             <div class="product-price">
                 <div class="pi-container">
@@ -816,6 +893,41 @@
                 </div>
                 <h3 class="price">&#8377; 1500</h3>
             </div>
+            <div class="product-price">
+                <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/311/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 2500</h3>
+             </div>
+             <div class="product-price">
+                 <div  class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/312/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1700</h3>
+             </div>
+             <div class="product-price">
+                 <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/314/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1500</h3>
+             </div>
+             <div class="product-price">
+                 <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/315/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1500</h3>
+             </div>
+             <div class="product-price">
+                 <div class="pi-container">
+                     <img class="product-image" src="https://picsum.photos/id/316/200/300"/>
+                     <button class="product-button">ADD TO CART</button>
+                 </div>
+                 <h3 class="price">&#8377; 1500</h3>
+             </div>
         </div>
     </section>
    
