@@ -120,7 +120,7 @@
             background: white;
             box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
             min-height:250px;
-            min-width:250px;
+            min-width:350px;
             max-height:350px;
             overflow-y:auto;
             transform: translateX(-50%) scale(0);
@@ -134,23 +134,45 @@
 
         .item-name-price {
             display: flex;
+            align-items: center;
             gap:5px;  
             margin-bottom:5px;  
             border-bottom:2px solid rgba(189, 195, 199,1.0);
         }
-        .item-name-price > div {
+        .item-name-price > div:first-of-type  {
             flex:4 1 0;
         }
+        
         .item-name-price img {
             height:50px;
             width:50px;
-            flex:1 1 0;
+            flex:1 1 0; 
         }
         .name-price {
 
         }
         .cart-item { color: black;letter-spacing: 2px;text-transform: uppercase;padding:6px 4px;}
         .cart-price {color:black;padding:2px 4px;}
+
+        .counter-flex {
+            flex:1 1 0;
+            display:flex;
+            align-items: center;
+            color:black;
+            border:1px solid black;
+            margin-right:8px;
+            max-height:45px;
+        }
+        .counter {
+            width:20px;
+            border:none;
+            outline:none;
+            padding-left:5px;
+        }
+        .cart-item-delete {
+            flex: 1 1 0;
+            color:black;
+        }
         
         @media (min-width:768px) {
             
@@ -234,6 +256,24 @@
                                 <h5 class="cart-item">Air cooler</h5>
                                 <h4 class="cart-price">4500 Rs.</h4>
                             </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
+                            </div>
                         </div>
 
                         <div class="item-name-price">
@@ -241,6 +281,24 @@
                             <div class="name-price">
                                 <h5 class="cart-item">Hair Dryer</h5>
                                 <h4 class="cart-price">1300 Rs.</h4>
+                            </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
                             </div>
                         </div>
 
@@ -250,6 +308,24 @@
                                 <h5 class="cart-item">Spray</h5>
                                 <h4 class="cart-price">350 Rs.</h4>
                             </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
+                            </div>
                         </div>
 
                         <div class="item-name-price">
@@ -257,6 +333,24 @@
                             <div class="name-price">
                                 <h5 class="cart-item">Decor</h5>
                                 <h4 class="cart-price">850 Rs.</h4>
+                            </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
                             </div>
                         </div>
 
@@ -266,6 +360,24 @@
                                 <h5 class="cart-item">Sun screen</h5>
                                 <h4 class="cart-price">3000 Rs.</h4>
                             </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
+                            </div>
                         </div>
 
                         <div class="item-name-price">
@@ -273,6 +385,24 @@
                             <div class="name-price">
                                 <h5 class="cart-item">Foundation</h5>
                                 <h4 class="cart-price">1200 Rs.</h4>
+                            </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
                             </div>
                         </div>
 
@@ -282,6 +412,24 @@
                                 <h5 class="cart-item">Shirt</h5>
                                 <h4 class="cart-price">750 Rs.</h4>
                             </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
+                            </div>
                         </div>
 
                         <div class="item-name-price">
@@ -289,6 +437,24 @@
                             <div class="name-price">
                                 <h5 class="cart-item">Pant</h5>
                                 <h4 class="cart-price">1200 Rs.</h4>
+                            </div>
+                            <div class="counter-flex">
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" onclick="counter(this,'minus')">
+                                  <rect x="5" y="11" width="14" height="2" rx="1" />
+                                </svg>
+                                <input class="counter" value="1"/>
+                                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"  onclick="counter(this,'plus')">
+                                  <path d="M19 11H13V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"/>
+                                </svg>
+                            </div>
+                            <div class="cart-item-delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14H6L5 6" />  
+                                <path d="M10 11v6" />
+                                <path d="M14 11v6" />
+                                <path d="M9 6V4h6v2" />
+                                </svg>
                             </div>
                         </div>
 
@@ -483,5 +649,26 @@
             </div>
         </div>
     </section>
+   
+    <script>
+        function counter(e,operation) {
+          let cntrInput = e.parentElement.querySelector(".counter")
+          let cntr = cntrInput.value
+          cntr = parseInt(cntr)
+          if (operation=="plus") {
+            cntr = cntr + 1
+          } 
+          else {
+            if (cntr == 1) {
+              
+            } 
+            else {
+              cntr = cntr -1;
+            }
+          }
+          cntrInput.value = cntr
+          
+        }
+    </script>
 </body>
 </html>
