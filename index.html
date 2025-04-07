@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         * {
             margin:0;
@@ -12,6 +15,11 @@
         }
         body {
             background:rgba(189, 195, 199,1.0);
+            font-family: "Roboto", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
         }
         .top-nav {
             background:rgba(44, 62, 80,1.0);
@@ -264,6 +272,79 @@
             box-shadow: 0 0 200px rgba(52, 152, 219,1.0);
         }
 
+        #image-container {
+            height:300px;
+            width:300px;
+            display:flex;
+            overflow-x:auto;
+            overflow-y:hidden;
+            scroll-behaviour:smooth;
+        }
+        #image-container::-webkit-scrollbar {
+            display: none;
+        }
+        #image-container img {
+            height:inherit;
+            width:inherit;
+            display:inline;
+            flex:0 0 auto;
+            object-fit:cover;
+        }
+        .scroll-container {
+            display:flex;
+            justify-content: space-around;
+            align-items:center;
+            gap:10px;
+        }
+        .previous,.next {
+            border-radius:50%;
+            height:50px;
+            width:50px;
+        }
+
+        .pp-section {
+            margin-top:25px;
+            margin-bottom: 25px;
+        }
+        .pp-container {
+            width: 80%;
+            margin:auto;
+            background:rgba(236, 240, 241,1.0);
+            padding:5px 10px;
+            margin-top:15px;
+
+        }
+        .product-page-name {
+            
+            margin-top:8px;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-bottom:15px;
+
+        }
+        .pp-name {
+            padding:5px;
+        }
+        .pp-price {
+            padding:5px;
+        }
+        .delivery {
+            padding:5px;
+            color:gray;
+        }
+        .pp-button {
+            padding:10px 20px;
+            width:100%;
+            background: rgba(52, 152, 219,1.0);
+            color:white;
+            outline:none;
+            border:none;
+            transition: transform 0.1s ease-in-out,box-shadow 0.1s ease-in-out;    
+        }   
+        .pp-button:active {
+            transform: scale(0.50);
+            box-shadow: 0 0 200px rgba(52, 152, 219,1.0);
+        }
         
         @media (min-width:768px) {
             .hamburger-icon {
@@ -279,9 +360,6 @@
             .logo,.cart,.login-button,.nav-search {
                 display: initial;
             }
-            /* .flex > div {
-                margin:5px;
-            } */
             .offer-section {
                 margin-top:100px;
                 margin-right:1%;
@@ -313,6 +391,25 @@
             .cart:hover .cart-items {
                 transform: translateX(-100%) scale(1);
             }
+
+            #image-container {
+                height:600px;
+                width:600px;
+            }
+            .scroll-container {
+                justify-content: center;
+            }
+            .pp-container {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                width: 60%;
+            }
+            .pp-button {
+                width: 60%;
+            }
+   
         }
     </style>
 </head>
@@ -977,6 +1074,38 @@
              </div>
         </div>
     </section>
+
+    <section class="pp-section">
+        <div class="scroll-container">
+            <button class="previous" onclick="scrollImages('left')">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+             <div class="images" id="image-container">
+                <img class="preview-image" src="https://picsum.photos/id/500/300/300"/>
+                <img class="preview-image" src="https://picsum.photos/id/502/300/300"/>
+                <img class="preview-image" src="https://picsum.photos/id/503/300/300"/>
+                <img class="preview-image" src="https://picsum.photos/id/504/300/300"/>
+                <img class="preview-image" src="https://picsum.photos/id/505/300/300"/>  
+             </div>
+             <button class="next" onclick="scrollImages('right')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+             </button>
+        </div>
+
+        <div class="pp-container">
+              <div class="product-page-name">
+                <p class="pp-name">Embroidered Bollywood Art Silk, Tissue Saree</p>
+                <h5 class="pp-price">&#8377; 780</h5>
+                <h6 class="delivery">Free Delivery</h6>
+              </div>
+              <button class="pp-button">ADD TO CART</button>
+        </div>
+
+    </section>
    
     <script>
         function counter(e,operation) {
@@ -1002,6 +1131,16 @@
             var topNav = e.parentElement
             var flex = topNav.querySelector(".flex")
             topNav.classList.toggle('ham-show');
+        }
+
+        function scrollImages(direction) {
+            const container = document.getElementById('image-container');
+            const scrollAmount = container.querySelector("img").offsetWidth;
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
         }
     </script>
 </body>
